@@ -18,6 +18,15 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             PermissionSeeder::class,
             UserSeeder::class,
+            VehicleCategorySeeder::class,
+            VehicleSeeder::class,
+            MaintenanceTypeSeeder::class,
+            MaintenanceSeeder::class,
+            VehicleExpenseSeeder::class,
+            CustomerSeeder::class,
+            CustomerDocumentSeeder::class,
+            RentalSeeder::class,
+            ContractInvoicePaymentSeeder::class,
         ]);
     }
 }
