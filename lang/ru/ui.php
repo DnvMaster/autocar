@@ -32,8 +32,10 @@
             'description' => 'Обзор вашего бизнеса по прокату автомобилей',
             'new_rental' => 'Новая аренда',
             'total_revenue' => 'Общая выручка',
+            'growth' => 'по сравнению с прошлым месяцем',
             'active_rentals' => 'Активные аренды',
             'fleet_vehicles' => 'Автомобили автопарка',
+            'fleet_utilization' => 'Загрузка автопарка',
             'outstanding' => 'Задолженность',
             'from_last_month' => 'по сравнению с прошлым месяцем',
             'currently_on_rental' => 'Сейчас в аренде',
@@ -64,10 +66,21 @@
             'overdue' => 'Просрочен',
             'cancelled' => 'Отменён',
         ],
+        'vehicle_status' => [
+            'available' => 'Доступен',
+            'reserved' => 'Забронирован',
+            'rented' => 'В аренде',
+            'maintenance' => 'На обслуживании',
+        ],
         'messages' => [
             'invoice_paid' => 'Счёт полностью оплачен.',
             'payment_awaiting' => 'Ожидается оплата от клиента.',
             'partial_payment' => 'Получена частичная оплата.',
             'payment_not_required' => 'Оплата пока не требуется.',
+        ],
+        'footer' => [
+            'copyright' => 'Все права защищены.',
+            'subtitle' => 'CRM автопроката',
+            'version' => 'Версия 1.0.0',
         ],
     ];

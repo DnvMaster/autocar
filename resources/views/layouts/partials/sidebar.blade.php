@@ -3,8 +3,8 @@
         <a href="{{ route('dashboard') }}" class="flex items-center gap-3">
             <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center font-bold text-lg">A</div>
             <div>
-                <div class="font-bold text-lg leading-none">AutoCar</div>
-                <div class="text-xs text-slate-400 mt-1">Fleet CRM</div>
+                <div class="font-bold text-lg leading-none">{{ __('ui.brand.name') }}</div>
+                <div class="text-xs text-slate-400 mt-1">{{ __('ui.brand.subtitle') }}</div>
             </div>
         </a>
     </div>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
         @hasSection('title')
-            @yield('title') — AutoCar CRM
+            @yield('title') — AutoCar
         @else
             AutoCar CRM
         @endif
@@ -17,11 +17,11 @@
     <div class="min-h-screen flex">
         {{-- Sidebar --}}
         @include('layouts.partials.sidebar')
-        <div class="flex-1 min-w-0">
+        <div class="flex-1 min-w-0 flex flex-col min-h-screen">
             {{-- Topbar --}}
             @include('layouts.partials.topbar')
             {{-- Main Content --}}
-            <main class="p-6">
+            <main class="p-6 flex-1">
                 @if(session('success'))
                     <div class="mb-6 rounded-lg bg-green-50 border border-green-200 px-4 py-3 text-sm text-green-700">
                         {{ session('success') }}
@@ -43,6 +43,7 @@
                 @endif
                 @yield('content')
             </main>
+            @include('layouts.partials.footer')
         </div>
     </div>
     @stack('scripts')
