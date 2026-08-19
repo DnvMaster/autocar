@@ -10,6 +10,8 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/css/dashboard.css',
                 'resources/js/dashboard.js',
+                'resources/css/vehicles.css',
+                'resources/js/vehicles.js',
             ],
             refresh: true,
             fonts: [
