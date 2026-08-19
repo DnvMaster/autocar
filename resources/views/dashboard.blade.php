@@ -2,6 +2,14 @@
 @section('title', __('ui.navigation.dashboard'))
 @section('page-title', __('ui.navigation.dashboard'))
 @section('content')
+
+    @push('styles')
+            @vite('resources/css/dashboard.css')
+    @endpush
+
+    @push('scripts')
+        @vite('resources/js/dashboard.js')
+    @endpush
     <div class="space-y-6">
 
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -129,9 +137,12 @@
                     <p class="text-sm text-gray-500 mt-1">Выручка по месяцам за {{ now()->year }} год</p>
                 </div>
             </div>
-            <div class="h-80">
-                <canvas id="revenueChart"></canvas>
-            </div>
+           <div class="dashboard-chart">
+    <canvas
+        id="revenueChart"
+        data-revenue='@json($revenueMonths)'
+    ></canvas>
+</div>
         </div>
 
         <div class="bg-white rounded-2xl border border-gray-200 p-6">
@@ -178,8 +189,9 @@
             <div class="h-2 bg-gray-100 rounded-full">
                 <div class="h-2 rounded-full bg-red-500" style="width: {{ $stats['vehicles'] > 0 ? ($stats['maintenance_vehicles'] / $stats['vehicles']) * 100 : 0 }}%"></div>
             </div>
-
         </div>
+
+
     </div>
 
     <div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
@@ -249,71 +261,3 @@
     </div>
 </div>
 @endsection
-
-@push('scripts')
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const canvas = document.getElementById('revenueChart');
-        if (!canvas) {
-            return;
-        }
-        const revenueData = @json($revenueMonths);
-        const monthNames = [
-            'Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'
-        ];
-        new Chart(canvas, {
-            type: 'line',
-            data: {
-                labels: revenueData.map(item => {
-                    return monthNames[item.month - 1];
-                }),
-                datasets: [
-                    {
-                        label: 'Выручка',
-                        data: revenueData.map(item => {
-                            return item.total;
-                        }),
-                        tension: 0.4,
-                        fill: true,
-                        borderWidth: 2,
-                        pointRadius: 3,
-                        pointHoverRadius: 5,
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function (context) {
-                                return ' €' + Number(context.raw)
-                                    .toLocaleString('ru-RU', {
-                                        minimumFractionDigits: 2,
-                                        maximumFractionDigits: 2
-                                });
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            callback: function (value) {
-                                return '€' + Number(value)
-                                    .toLocaleString('ru-RU');
-                            }
-                        }
-                    }
-                }
-            }
-        });
-    });
-</script>
-@endpush

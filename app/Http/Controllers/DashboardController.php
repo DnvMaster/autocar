@@ -42,7 +42,7 @@ class DashboardController extends Controller
             return $invoice;
         });
 
-        $revenueByMonth = Invoice::query()->selectRaw('MONTH(issued_at) as month')->selectRaw('SUM(total) as total')->where('status', 'paid')->whereYear('issued_at', now()->year)->groupByRaw('MONTH(issued_at)')->orderBy('month') ->pluck('total', 'month');
+        $revenueByMonth = Invoice::query()->selectRaw('MONTH(issued_at) as month')->selectRaw('SUM(total) as total')->where('status', 'paid')->whereYear('issued_at', now()->year)->groupByRaw('MONTH(issued_at)')->orderBy('month')->pluck('total', 'month');
         $revenueMonths = collect(range(1, 12))->map(function ($month) use ($revenueByMonth) {
             return ['month' => $month,'total' => (float) ($revenueByMonth[$month] ?? 0)];
         });
