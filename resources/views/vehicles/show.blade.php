@@ -31,6 +31,12 @@
             @endphp
             <span class="inline-flex rounded-full px-4 py-2 text-sm font-medium {{ $status[$vehicle->status]['class'] ?? 'bg-gray-100 text-gray-700' }}">{{ $status[$vehicle->status]['text'] ?? $vehicle->status }}</span>
         </div>
+        <a
+    href="{{ route('vehicles.edit', $vehicle) }}"
+    class="inline-flex items-center rounded-lg bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800"
+>
+    Редактировать
+</a>
     </div>
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div class="lg:col-span-2 space-y-6">

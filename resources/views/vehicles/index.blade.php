@@ -13,7 +13,7 @@
             <h1 class="text-2xl font-semibold text-gray-900">Автомобили</h1>
             <p class="mt-1 text-sm text-gray-500">Управление автопарком и доступностью автомобилей</p>
         </div>
-        <a href="#" class="inline-flex items-center justify-center rounded-lg bg-gray-900 px-4 py-2.5 text-sm font-medium text-white hover:bg-gray-800 transition"> + Добавить автомобиль</a>
+        <a href="{{ route('vehicles.create') }}" class="inline-flex items-center justify-center rounded-lg bg-gray-900 px-4 py-2.5 text-sm font-medium text-white hover:bg-gray-800 transition"> + Добавить автомобиль</a>
     </div>
 
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
