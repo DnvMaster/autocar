@@ -12,6 +12,7 @@ export default defineConfig({
                 'resources/js/dashboard.js',
                 'resources/css/vehicles.css',
                 'resources/js/vehicles.js',
+                'resources/js/vehicle-form.js',
             ],
             refresh: true,
             fonts: [

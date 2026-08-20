@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\VehicleImageController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -9,6 +10,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
+
 Route::get('/vehicles', [VehicleController::class, 'index'])->name('vehicles.index');
 Route::get('/vehicles/create', [VehicleController::class, 'create'])->name('vehicles.create');
 Route::post('/vehicles', [VehicleController::class, 'store'])->name('vehicles.store');
@@ -16,3 +18,5 @@ Route::get('/vehicles/{vehicle}', [VehicleController::class, 'show'])->name('veh
 Route::get('/vehicles/{vehicle}/edit', [VehicleController::class, 'edit'])->name('vehicles.edit');
 Route::put('/vehicles/{vehicle}', [VehicleController::class, 'update'])->name('vehicles.update');
 Route::delete('/vehicles/{vehicle}', [VehicleController::class, 'destroy'])->name('vehicles.destroy');
+Route::post('/vehicles/{vehicle}/images',[VehicleImageController::class, 'store'])->name('vehicles.images.store');
+Route::delete('/vehicles/{vehicle}/images/{image}',[VehicleImageController::class, 'destroy'])->name('vehicles.images.destroy');
