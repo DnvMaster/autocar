@@ -113,4 +113,10 @@ class VehicleController extends Controller
         $vehicle->update($data);
         return redirect()->route('vehicles.show', $vehicle)->with('success', 'Данные автомобиля обновлены.');
     }
+
+    public function destroy(Vehicle $vehicle): RedirectResponse
+    {
+        $vehicle->delete();
+        return redirect()->route('vehicles.index')->with('success', 'Автомобиль успешно удалён.');
+    }
 }
